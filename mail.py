@@ -12,13 +12,13 @@ def report_send_mail(label, image_path):
 
     with open(image_path, 'rb') as f:
         img_data = f.read()
-    fromaddr = "vishva.csr122@gmail.com"
-    toaddr = "vishvavishvabalaguru@gmail.com"
+    fromaddr = "yourgmail@gmail.com"
+    toaddr = "receiver@gmail.com"
                
     msg = MIMEMultipart() 
     msg['From'] = fromaddr 
     msg['To'] = toaddr 
-    msg['Subject'] = "Alert,E.G.S.Pillay Engineering College,GG BLOCK."
+    msg['Subject'] = "Alert, Forest Fire Alert - Fire Detected."
 
     body = label
     msg.attach(MIMEText(body, 'plain'))
@@ -29,7 +29,7 @@ def report_send_mail(label, image_path):
       
     s = smtplib.SMTP('smtp.gmail.com', 587) 
     s.starttls() 
-    s.login(fromaddr, "ywfbiolgmllaaomp") 
+    s.login(fromaddr, "GMAIL_APP_PASSWORD")
     text = msg.as_string() 
     s.sendmail(fromaddr, toaddr, text) 
     s.quit()
